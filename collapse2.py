@@ -66,9 +66,9 @@ correction2= 18.59-4.73
 drg = zip(dataset,rhoset,gammaset,viscosityset)
 #fig,axes = plt.subplots(2,2,figsize=(12,8))
 #ax,ax2,ax3,ax4 = axes.flat[:]
-fig,ax = plt.subplots(figsize=(5,5))
+fig,ax = plt.subplots(figsize=(5.1,5))
 
-plt.subplots_adjust(bottom=0.21,left=0.2)
+plt.subplots_adjust(bottom=0.216,left=0.2)
 #plt.axis('equal')
 cmap = plt.get_cmap('tab20')
 #plt.xlim(20,1000)
