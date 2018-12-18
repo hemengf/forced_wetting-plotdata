@@ -6,7 +6,10 @@ import matplotlib.pyplot as plt
 from leastsq import leastsq_weighted
 from leastsq import chi2test 
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -183,12 +186,12 @@ print 'f = %.4f+/-%.4f' %(f,sigmaf)
 ax.plot(np.arange(0,2,0.1),19.6*np.arange(0,2,0.1))
 
 ax.xaxis.set_label_coords(0.5,-0.12)
-ax.set_xlabel(r'$\sqrt{\frac{\eta_{in}}{\eta_{out}}}\sqrt{\frac{\eta_{in}U}{\Delta \rho g}}$',fontsize=23,labelpad=0)
-ax.yaxis.set_label_coords(-0.1,0.5)
-ax.set_ylabel(r'$H_{thin}(\mu m)$',fontsize=24,labelpad=0)
+ax.set_xlabel(r'$\sqrt{\frac{\eta_{\text{in}}}{\eta_{\text{out}}}}\sqrt{\frac{\eta_{\text{in}}U}{\Delta \rho g}}$',fontsize=25,labelpad=0)
+ax.yaxis.set_label_coords(-0.12,0.5)
+ax.set_ylabel(r'$H_{\text{thin}}(\mu \text{m})$',fontsize=26,labelpad=0)
 ax.set_yticks(np.arange(0,25,5))
 ax.set_xticks(np.arange(0,1.2,0.2))
-plt.tick_params(labelsize=18,right=True,top=True)
+plt.tick_params(labelsize=20,right=True,top=True)
 #plt.axis('equal')
 ax.set_xlim(0,20./19.6)
 ax.set_ylim(0,20)

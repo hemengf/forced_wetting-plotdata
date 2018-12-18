@@ -5,7 +5,10 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from error_boxes import make_error_boxes as meb
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 data92 = np.genfromtxt('data_92.csv', delimiter=',',names=True)
 data65 = np.genfromtxt('data_65.csv',delimiter=',',names=True)
 data214 = np.genfromtxt('data_214.csv',delimiter=',',names=True)
@@ -142,10 +145,10 @@ plotfunction(0,0,0)
 #expo1slider.on_changed(update)
 #expo2slider.on_changed(update)
 #cslider.on_changed(update)
-plt.tick_params(labelsize=18,right=True,top=True)
+plt.tick_params(labelsize=20,right=True,top=True)
 ax.yaxis.set_label_coords(-0.08,0.5)
-ax.set_xlabel(r'$U (mm/s)$',fontsize=24,labelpad=0)
-ax.set_ylabel(r'$L (mm)$',fontsize=24,labelpad=0)
+ax.set_xlabel(r'$U (\text{mm/s})$',fontsize=26,labelpad=0)
+ax.set_ylabel(r'$L (\text{mm})$',fontsize=26,labelpad=0)
 ax.set_ylim(0,8)
 plt.show() 
 

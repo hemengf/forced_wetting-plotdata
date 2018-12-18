@@ -7,7 +7,10 @@ from error_boxes import make_error_boxes as meb
 from scipy import optimize
 from matplotlib.ticker import FormatStrFormatter
 from matplotlib import rc
-rc('text', usetex=True)
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
+rc('text',usetex=True)
+rc('font',family='serif')
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -197,14 +200,15 @@ print 'd = %.4f+/-%.4f' %(d,derr)
 #expo2slider.on_changed(update)
 #cslider.on_changed(update)
 
-plt.tick_params(labelsize=18,right=True,top=True)
+plt.tick_params(labelsize=20,right=True,top=True)
 
 ax.yaxis.set_label_coords(-0.08,0.5)
-ax.set_xlabel(r'$U (mm/s)$',fontsize=24,labelpad=0)
-ax.set_ylabel(r'$\cos(\phi)^{-1}$',fontsize=24,labelpad=0)
+ax.xaxis.set_label_coords(0.5,-0.12)
+ax.set_xlabel(r'$U \text{(mm/s)}$',fontsize=26,labelpad=0)
+ax.set_ylabel(r'$\cos(\phi)^{-1}$',fontsize=26,labelpad=0)
 #ax.yaxis.set_label_coords(-0.165,0.5)
 ax.axhline(y=1.32,ls=(0,(5,5)))
-ax.annotate('$1.32$',xy=(947,1.32),xytext=(700,0.6),arrowprops=dict(facecolor='black',width=2,headwidth=8),fontsize=18)
+ax.annotate('$1.32$',xy=(947,1.32),xytext=(700,0.6),arrowprops=dict(facecolor='black',width=2,headwidth=8),fontsize=20)
 #ax.set_yticks([0,1,1.32,2,3,4,5])
 #ax.yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
 plt.show() 

@@ -5,7 +5,10 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from error_boxes import make_error_boxes as meb
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -133,13 +136,14 @@ plotfunction(1/2,-1/4,0.5)
 #expo1slider.on_changed(update)
 #expo2slider.on_changed(update)
 #cslider.on_changed(update)
-plt.tick_params(labelsize=18,top=True,right=True)
+plt.tick_params(labelsize=20,top=True,right=True)
 
 ax.set_xlim(0,750)
 ax.set_ylim(0,180)
 ax.yaxis.set_label_coords(-0.15,0.5)
-ax.set_xlabel(r'$U (mm/s)$',fontsize=24,labelpad=0)
-ax.set_ylabel(r'$H_{max}(\mu m)$',fontsize=24,labelpad=0)
+ax.xaxis.set_label_coords(0.5,-0.13)
+ax.set_xlabel(r'$U \text{(mm/s)}$',fontsize=26,labelpad=0)
+ax.set_ylabel(r'$H_{\text{max}}(\mu\text{m})$',fontsize=26,labelpad=0)
 ax.set_yticks([0,50,100,150])
 plt.show()
 

@@ -6,7 +6,10 @@ import matplotlib.pyplot as plt
 from leastsq import leastsq_weighted
 from leastsq import chi2test 
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -201,12 +204,12 @@ print 'f = %.4f+/-%.4f' %(f,sigmaf)
 #ax3.axhline(y = 0.667,ls='--')
 ax3.axhline(y = 0.5,ls='-')
 ax3.set_yticks([0,0.5,1])
-ax3.yaxis.set_label_coords(-0.16,0.5)
-ax3.set_xlabel(r'$\eta_{out}$',fontsize=24,labelpad=0)
-ax3.set_ylabel(r'$\alpha$',fontsize=24,labelpad=0)
+ax3.yaxis.set_label_coords(-0.18,0.5)
+ax3.set_xlabel(r'$\eta_{\text{out}}$',fontsize=26,labelpad=0)
+ax3.set_ylabel(r'$\alpha$',fontsize=26,labelpad=0)
 ax3.set_ylim(0,1)
 #ax3.annotate(r'$2/3$',xy=(0,0.667),xytext=(70,0.83),arrowprops=dict(facecolor='black',width=2,headwidth=8),fontsize=18)
 
-plt.tick_params(labelsize=18,right=True,top=True)
+plt.tick_params(labelsize=20,right=True,top=True)
 plt.show()
 

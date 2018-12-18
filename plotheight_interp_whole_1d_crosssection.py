@@ -12,7 +12,10 @@ import os
 from matplotlib.ticker import FormatStrFormatter
 from progressbar import progressbar_tty as ptty
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 
 data_img = cv2.imread('sample4.tif',0)
 data_img = data_img.astype('float64') 
@@ -59,7 +62,7 @@ def surface_polynomial(size, coeff,(zoomfactory,zoomfactorx)):
     zz = poly(x[None,:],y[:,None])
     return zz
 
-fig,ax = plt.subplots(figsize=(7,3))
+fig,ax = plt.subplots(figsize=(7,3.3))
 plt.subplots_adjust(bottom=0.22,left=0.2)
 #ax.set_aspect(aspect='equal')
 #ax.set_zlim(1.5*floor,-0.5*floor)
@@ -401,10 +404,10 @@ for slicing in range(300,2800,500):
     #ax.plot(xs=xxxnew,zs=f(xxxnew),ys=len(xxxnew)*[slicing],zdir='z',color="C0")
 """
 
-plt.tick_params(labelsize=18,right=True,top=True)
-ax.set_xlabel(r'$z(mm)$',fontsize=24,labelpad=0)
-ax.yaxis.set_label_coords(-0.08,0.5)
-ax.set_ylabel(r'$H(\mu m)$',fontsize=24,labelpad=0)
+plt.tick_params(labelsize=20,right=True,top=True)
+ax.set_xlabel(r'$z \text{(mm)}$',fontsize=26,labelpad=0)
+ax.yaxis.set_label_coords(-0.09,0.5)
+ax.set_ylabel(r'$H (\mu\text{m})$',fontsize=26,labelpad=0)
 ax.set_yticks([0,30,60,90])
 ax.set_ylim(0,90)
 plt.show()

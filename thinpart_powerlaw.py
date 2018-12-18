@@ -7,7 +7,10 @@ from leastsq import leastsq_weighted
 from leastsq import chi2test 
 from matplotlib.ticker import FormatStrFormatter
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -212,10 +215,11 @@ print 'f = %.4f+/-%.4f' %(f,sigmaf)
 #ax3.set_ylabel(r'$\alpha$',fontsize=18)
 #ax3.axhspan(bmean-berrfinal,bmean+berrfinal,alpha =0.5)
 
-plt.tick_params(labelsize=18,right=True,top=True)
-ax.set_xlabel(r'$log(U)$',fontsize=24,labelpad=0)
-ax.yaxis.set_label_coords(-0.08,0.5)
-ax.set_ylabel(r'$log(H_{thin})$',fontsize=24,labelpad=0)
+plt.tick_params(labelsize=20,right=True,top=True)
+ax.xaxis.set_label_coords(0.5,-0.1)
+ax.yaxis.set_label_coords(-0.1,0.5)
+ax.set_xlabel(r'$\log(U)$',fontsize=26,labelpad=0)
+ax.set_ylabel(r'$\log(H_{\text{thin}})$',fontsize=26,labelpad=0)
 #ax.yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
 ax.set_xlim(-1.4,0.2)
 #ax.set_ylim(-6,-4.7)

@@ -6,7 +6,10 @@ from matplotlib.widgets import Slider
 from error_boxes import make_error_boxes as meb
 from scipy import optimize
 from matplotlib import rc
+params= {'text.latex.preamble' : [r'\usepackage{amsmath}']}
+plt.rcParams.update(params)
 rc('text',usetex=True)
+rc('font',family='serif')
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -143,7 +146,7 @@ def plotfunction(expo1,expo2,c):
     handles, labels = ax.get_legend_handles_labels()
     handles = [h[0] for h in handles]
     #ax.legend(handles[::-1], labels[::-1], ncol=2,loc=3,fontsize=14,labelspacing=0,bbox_to_anchor=(-0.02,-0.02),borderpad=0,edgecolor='none',columnspacing=0,handletextpad=0,framealpha=0)
-    ax.legend(handles[::-1], labels[::-1], ncol=2,loc=3,fontsize=14,labelspacing=0,bbox_to_anchor=(-0.02,-0.02),borderpad=0,edgecolor='none',columnspacing=0,handletextpad=0,framealpha=0)
+    ax.legend(handles[::-1], labels[::-1], ncol=2,loc=3,fontsize=17,labelspacing=0,bbox_to_anchor=(-0.02,-0.02),borderpad=0,edgecolor='none',columnspacing=0,handletextpad=0,framealpha=0)
     
 #xexpo1slider = plt.axes([0.25,0.08,0.65,0.03])
 #xexpo2slider = plt.axes([0.25,0.05,0.65,0.03])
@@ -192,11 +195,11 @@ print 'd = %.4f+/-%.4f' %(d,derr)
 #expo2slider.on_changed(update)
 #cslider.on_changed(update)
 
-plt.tick_params(labelsize=18,right=True, top=True)
-ax.yaxis.set_label_coords(-0.12,0.5)
-ax.xaxis.set_label_coords(0.5,-0.11)
-ax.set_xlabel(r'$log(\eta_{out})$',fontsize=24,labelpad=0)
-ax.set_ylabel(r'$log(U_{max})$',fontsize=24,labelpad=0)
+plt.tick_params(labelsize=20,right=True, top=True)
+ax.yaxis.set_label_coords(-0.13,0.5)
+ax.xaxis.set_label_coords(0.5,-0.12)
+ax.set_xlabel(r'$\text{log}(\eta_{\text{out}})$',fontsize=26,labelpad=0)
+ax.set_ylabel(r'$\text{log}(U_{\text{max}})$',fontsize=26,labelpad=0)
 ax.set_yticks([1.5,2.0,2.5])
 #ax.set_ylim(1,3)
 #ax.set_xlim(1,3)
