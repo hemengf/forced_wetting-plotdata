@@ -7,6 +7,7 @@ from error_boxes import make_error_boxes as meb
 from scipy import optimize
 from matplotlib.ticker import FormatStrFormatter
 from matplotlib import rc
+rc('text',usetex=True)
 #rc('text',usetex=True)
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
@@ -62,7 +63,7 @@ viscosityset = [572,512,285,214,162,153,92,68,65,31,26]
 drg = zip(dataset,rhoset,gammaset,viscosityset)
 
 """ plot angle vs U"""
-fig,ax = plt.subplots(figsize=(5,5))
+fig,ax = plt.subplots(figsize=(3.375,3.375))
 
 """ plot powerlaw """
 #fig,ax = plt.subplots(figsize=(2,2))# for powerlaw inset
@@ -206,7 +207,6 @@ ax.axhline(y=1.32,ls=(0,(5,5)))
 ax.annotate('$1.32$',xy=(947,1.32),xytext=(700,0.6),arrowprops=dict(facecolor='black',width=2,headwidth=8),fontsize=18)
 #ax.set_yticks([0,1,1.32,2,3,4,5])
 #ax.yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
-rc('text',usetex=True)
-#plt.show() 
-plt.savefig('foo.png') 
+plt.show() 
+#plt.savefig('foo.png') 
 

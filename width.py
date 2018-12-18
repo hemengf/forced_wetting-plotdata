@@ -4,6 +4,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from error_boxes import make_error_boxes as meb
+from matplotlib import rc
+rc('text',usetex=True)
 data92 = np.genfromtxt('data_92.csv', delimiter=',',names=True)
 data65 = np.genfromtxt('data_65.csv',delimiter=',',names=True)
 data214 = np.genfromtxt('data_214.csv',delimiter=',',names=True)

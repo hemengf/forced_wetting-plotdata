@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from error_boxes import make_error_boxes as meb
 from scipy import optimize
-from matplotlib.ticker import FormatStrFormatter
-from matplotlib import rc
-rc('text', usetex=True)
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -61,12 +58,9 @@ viscosityset = [572,512,285,214,162,153,92,68,65,31,26]
 
 drg = zip(dataset,rhoset,gammaset,viscosityset)
 
-""" plot angle vs U"""
-fig,ax = plt.subplots(figsize=(5,5))
 
 """ plot powerlaw """
-#fig,ax = plt.subplots(figsize=(2,2))# for powerlaw inset
-#plt.axis('equal')
+fig,ax = plt.subplots(figsize=(5,5))# for powerlaw inset
 
 plt.subplots_adjust(bottom=0.2,left=0.2)
 correction = 6.93-2.2
@@ -137,19 +131,17 @@ def plotfunction(expo1,expo2,c):
         umaxlist.append(umax)
         umaxerrlist.append(umaxerr)
         mulist.append(mu)
+        if mu==572:
+            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='%s (cP)'%mu,zorder=1)
+        else:
+            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='%s'%mu,zorder=1)
+        if mu == 162:
+            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=0,label=' ',zorder=1)
 
-        """plot angle vs U"""
-        if i not in [0,2,4,6,8,9]:
-            continue
-        ax.errorbar(u,1/(np.cos(phi)*np.power(mu,expo1)),xerr=du,yerr=dphi*np.sin(phi)/(np.cos(phi)**2*np.power(mu,expo1)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='%scP'%mu,zorder=1)
-        ax.set_xlim(0,950)
-        ax.set_ylim(0,5)
-        #ax.legend(loc='upper right',framealpha=1)
-        ax.plot(1e3*U,pfinal*1e3*U,color=cmap(i),zorder=0)
-        #ax.axvline(umax,color=cmap(i))
-
-        """plot powerlaw"""
-        #ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='%scP'%mu,zorder=1)
+    handles, labels = ax.get_legend_handles_labels()
+    handles = [h[0] for h in handles]
+    ax.legend(handles[::-1], labels[::-1], ncol=2,loc=3,fontsize=14,labelspacing=0,bbox_to_anchor=(-0.02,-0.02),borderpad=0,edgecolor='none',columnspacing=0,handletextpad=0,framealpha=0)
+    
 #xexpo1slider = plt.axes([0.25,0.08,0.65,0.03])
 #xexpo2slider = plt.axes([0.25,0.05,0.65,0.03])
 #xcslider = plt.axes([0.25,0.02,0.65,0.03])
@@ -182,7 +174,7 @@ covar = cov_x*s_sq
 cerr = np.sqrt(covar[0][0])*c*np.log(10)
 logcerr = cerr/(c*np.log(10))
 derr = np.sqrt(covar[1][1])
-#plt.plot(logmu,np.log10(c)+(d)*logmu,zorder=0)
+plt.plot(logmu,np.log10(c)+(d)*logmu,zorder=0)
 print 'logc = %.4f+/-%.4f' %(np.log10(c),logcerr)
 print 'd = %.4f+/-%.4f' %(d,derr)
 
@@ -197,14 +189,12 @@ print 'd = %.4f+/-%.4f' %(d,derr)
 #expo2slider.on_changed(update)
 #cslider.on_changed(update)
 
-plt.tick_params(labelsize=18,right=True,top=True)
+plt.tick_params(labelsize=18,right=True, top=True)
 
-ax.set_xlabel(r'$U (mm/s)$',fontsize=24,labelpad=0)
-ax.set_ylabel(r'$\cos(\phi)^{-1}$',fontsize=24,labelpad=0)
-#ax.yaxis.set_label_coords(-0.165,0.5)
-ax.axhline(y=1.32,ls=(0,(5,5)))
-ax.annotate('$1.32$',xy=(947,1.32),xytext=(700,0.6),arrowprops=dict(facecolor='black',width=2,headwidth=8),fontsize=18)
-#ax.set_yticks([0,1,1.32,2,3,4,5])
-#ax.yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
+ax.set_xlabel(r'$log(\eta_{out})$',fontsize=24,labelpad=0)
+ax.set_ylabel(r'$log(U_{max})$',fontsize=24,labelpad=0)
+ax.set_yticks([1.5,2.0,2.5])
+#ax.set_ylim(1,3)
+#ax.set_xlim(1,3)
 plt.show() 
 

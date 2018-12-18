@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 from error_boxes import make_error_boxes as meb
 from scipy import optimize
+from matplotlib import rc
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
