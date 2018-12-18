@@ -11,6 +11,8 @@ from scipy import interpolate
 import os
 from matplotlib.ticker import FormatStrFormatter
 from progressbar import progressbar_tty as ptty
+from matplotlib import rc
+rc('text',usetex=True)
 
 data_img = cv2.imread('sample4.tif',0)
 data_img = data_img.astype('float64') 
@@ -401,6 +403,7 @@ for slicing in range(300,2800,500):
 
 plt.tick_params(labelsize=18,right=True,top=True)
 ax.set_xlabel(r'$z(mm)$',fontsize=24,labelpad=0)
+ax.yaxis.set_label_coords(-0.08,0.5)
 ax.set_ylabel(r'$H(\mu m)$',fontsize=24,labelpad=0)
 ax.set_yticks([0,30,60,90])
 ax.set_ylim(0,90)

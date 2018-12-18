@@ -199,6 +199,7 @@ print 'd = %.4f+/-%.4f' %(d,derr)
 
 plt.tick_params(labelsize=18,right=True,top=True)
 
+ax.yaxis.set_label_coords(-0.08,0.5)
 ax.set_xlabel(r'$U (mm/s)$',fontsize=24,labelpad=0)
 ax.set_ylabel(r'$\cos(\phi)^{-1}$',fontsize=24,labelpad=0)
 #ax.yaxis.set_label_coords(-0.165,0.5)

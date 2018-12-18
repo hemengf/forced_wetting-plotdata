@@ -5,6 +5,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from leastsq import leastsq_weighted
 from leastsq import chi2test 
+from matplotlib import rc
+rc('text',usetex=True)
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -172,7 +174,9 @@ ax4.plot(log10mu, log10e+f*log10mu,'C0')
 #ax3.set_ylabel(r'$\alpha$',fontsize=18)
 #ax3.axhspan(bmean-berrfinal,bmean+berrfinal,alpha =0.5)
 
+ax4.xaxis.set_label_coords(0.5,-0.32)
 ax4.set_xlabel(r'$log(\eta_{out})$',fontsize=24,labelpad=0)
+ax4.yaxis.set_label_coords(-0.16,0.5)
 ax4.set_ylabel(r'$log(A)$',fontsize=24,labelpad=0)
 ax4.yaxis.set_label_coords(-0.37,0.52)
 ax4.set_xticks([1.5,2.5])

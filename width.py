@@ -135,6 +135,7 @@ plt.tick_params(labelsize=18,right=True, top=True)
 
 #ax.set_xlim(0,950)
 ax.set_ylim(0,8)
+ax.yaxis.set_label_coords(-0.08,0.5)
 ax.set_xlabel('$U (mm/s)$',fontsize=24,labelpad=0)
 ax.set_ylabel(r'$W (mm)$',fontsize=24,labelpad=0)
 plt.show()

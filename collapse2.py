@@ -5,6 +5,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from leastsq import leastsq_weighted
 from leastsq import chi2test 
+from matplotlib import rc
+rc('text',usetex=True)
 #data92 = np.genfromtxt('../2017_6_18_more/old_calibration/data.csv', delimiter=',',names=True)
 #data65 = np.genfromtxt('../2017_7_25_65cP/data.csv',delimiter=',',names=True)
 #data214 = np.genfromtxt('../2017_8_29_214cP/data.csv',delimiter=',',names=True)
@@ -180,7 +182,9 @@ print 'f = %.4f+/-%.4f' %(f,sigmaf)
 #ax3.axhspan(bmean-berrfinal,bmean+berrfinal,alpha =0.5)
 ax.plot(np.arange(0,2,0.1),19.6*np.arange(0,2,0.1))
 
+ax.xaxis.set_label_coords(0.5,-0.12)
 ax.set_xlabel(r'$\sqrt{\frac{\eta_{in}}{\eta_{out}}}\sqrt{\frac{\eta_{in}U}{\Delta \rho g}}$',fontsize=23,labelpad=0)
+ax.yaxis.set_label_coords(-0.1,0.5)
 ax.set_ylabel(r'$H_{thin}(\mu m)$',fontsize=24,labelpad=0)
 ax.set_yticks(np.arange(0,25,5))
 ax.set_xticks(np.arange(0,1.2,0.2))
