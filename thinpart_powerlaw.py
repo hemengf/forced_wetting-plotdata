@@ -75,7 +75,7 @@ for data inspection
 for data plotting
 
 """
-fig,ax = plt.subplots(figsize=(11.5,6))
+fig,ax = plt.subplots(figsize=(11.55,6))
 
 plt.subplots_adjust(bottom=0.2,left=0.2)
 #plt.subplots_adjust(bottom=0.3,top=0.8,left=0.35)
@@ -217,7 +217,7 @@ print 'f = %.4f+/-%.4f' %(f,sigmaf)
 
 plt.tick_params(labelsize=20,right=True,top=True)
 ax.xaxis.set_label_coords(0.5,-0.1)
-ax.yaxis.set_label_coords(-0.1,0.5)
+ax.yaxis.set_label_coords(-0.08,0.5)
 ax.set_xlabel(r'$\log(U)$',fontsize=26,labelpad=0)
 ax.set_ylabel(r'$\log(H_{\text{thin}})$',fontsize=26,labelpad=0)
 #ax.yaxis.set_major_formatter(FormatStrFormatter('%.1f'))
