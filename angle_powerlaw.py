@@ -134,14 +134,15 @@ def plotfunction(expo1,expo2,c):
         umaxerrlist.append(umaxerr)
         mulist.append(mu)
         if mu==572:
-            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='%s (cP)'%mu,zorder=1)
+            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='$%s$ (cP)'%mu,zorder=1)
         else:
-            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='%s'%mu,zorder=1)
-        if mu == 162:
-            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=0,label=' ',zorder=1)
+            ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=1,label='$%s$'%mu,zorder=1)
+        #if mu == 162:
+        #    ax.errorbar(np.log10(mu),np.log10(umax),xerr=0,yerr=umaxerr/(umax*np.log(10)),fmt=markerlist[i],ms=8,markeredgewidth=1,mfc=cmap(i),ecolor='C0',capsize=4,alpha=0,label=' ',zorder=1)
 
     handles, labels = ax.get_legend_handles_labels()
     handles = [h[0] for h in handles]
+    #ax.legend(handles[::-1], labels[::-1], ncol=2,loc=3,fontsize=14,labelspacing=0,bbox_to_anchor=(-0.02,-0.02),borderpad=0,edgecolor='none',columnspacing=0,handletextpad=0,framealpha=0)
     ax.legend(handles[::-1], labels[::-1], ncol=2,loc=3,fontsize=14,labelspacing=0,bbox_to_anchor=(-0.02,-0.02),borderpad=0,edgecolor='none',columnspacing=0,handletextpad=0,framealpha=0)
     
 #xexpo1slider = plt.axes([0.25,0.08,0.65,0.03])
@@ -193,6 +194,7 @@ print 'd = %.4f+/-%.4f' %(d,derr)
 
 plt.tick_params(labelsize=18,right=True, top=True)
 ax.yaxis.set_label_coords(-0.12,0.5)
+ax.xaxis.set_label_coords(0.5,-0.11)
 ax.set_xlabel(r'$log(\eta_{out})$',fontsize=24,labelpad=0)
 ax.set_ylabel(r'$log(U_{max})$',fontsize=24,labelpad=0)
 ax.set_yticks([1.5,2.0,2.5])
