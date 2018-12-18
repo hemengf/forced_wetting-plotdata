@@ -68,7 +68,7 @@ drg = zip(dataset,rhoset,gammaset,viscosityset)
 #ax,ax2,ax3,ax4 = axes.flat[:]
 fig,ax = plt.subplots(figsize=(5,5))
 
-plt.subplots_adjust(bottom=0.2,left=0.2)
+plt.subplots_adjust(bottom=0.21,left=0.2)
 #plt.axis('equal')
 cmap = plt.get_cmap('tab20')
 #plt.xlim(20,1000)
@@ -185,7 +185,7 @@ print 'f = %.4f+/-%.4f' %(f,sigmaf)
 #ax3.axhspan(bmean-berrfinal,bmean+berrfinal,alpha =0.5)
 ax.plot(np.arange(0,2,0.1),19.6*np.arange(0,2,0.1))
 
-ax.xaxis.set_label_coords(0.5,-0.12)
+ax.xaxis.set_label_coords(0.5,-0.11)
 ax.set_xlabel(r'$\sqrt{\frac{\eta_{\text{in}}}{\eta_{\text{out}}}}\sqrt{\frac{\eta_{\text{in}}U}{\Delta \rho g}}$',fontsize=25,labelpad=0)
 ax.yaxis.set_label_coords(-0.12,0.5)
 ax.set_ylabel(r'$H_{\text{thin}}(\mu \text{m})$',fontsize=26,labelpad=0)
